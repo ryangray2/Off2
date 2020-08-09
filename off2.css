@@ -1,0 +1,646 @@
+html {
+  background-color:  #F58426;
+  transition: all 0.2s ease;
+}
+
+body {
+  background-color:  #F58426;
+  transition: all 0.2s ease;
+}
+
+.container {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#startPage {
+  background-color:  #F58426;
+  transition: all 0.2s ease;
+}
+
+.year {
+  font-family: Changa;
+  color: white;
+  margin: 0px;
+  font-size: 6vw;
+}
+
+.title {
+  margin-top: 0px;
+  font-family: "Montserrat";
+  color: white;
+  font-size: 14vw;
+  /* margin-left: 2px; */
+}
+
+.titleUnder {
+  margin-top: -20px;
+
+}
+
+#topYear {
+  margin-top: 20px;
+}
+
+#titleTop {
+  margin-top: -10px;
+}
+
+#ryan {
+  margin-top: -10px;
+}
+
+@media only screen and (min-width: 751px) {
+  #titleTop {
+    margin-top: -20px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  #ryan {
+    margin-top: -20px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .title {
+    font-size: 20vh;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .titleUnder {
+    margin-top: -30px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .year {
+    font-size: 6vh;
+  }
+}
+
+.start {
+  background-color: transparent;
+  border: 2px solid white;
+  font-family: "Changa";
+  color: white;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.lottoNum {
+  float: right;
+  font-family: "Changa";
+  font-size: 3vh;
+}
+
+#notePage {
+  display: none;
+}
+
+#lotteryPage {
+  display: none;
+  height: 100vh;
+  width: 100%;
+}
+
+#lotteryTitle {
+  color: #F58426;
+  font-family: "Montserrat";
+  font-size: 5vh;
+
+}
+
+
+#dpPlayerRow {
+  height: 25vh
+}
+
+#lottoDiv {
+  color: #F58426;
+}
+
+.lottoName {
+  font-family: "Changa";
+  font-size: 3vh;
+}
+
+.titleRow {
+    border-bottom: 3px solid #F58426;
+}
+
+#finishLotteryButton {
+  background-color: transparent;
+  border: 2px solid #F58426;
+  font-family: "Changa";
+  color: #F58426;
+  margin-top: 20px;
+  font-size: 3vh;
+  float: right;
+}
+
+.teamRow {
+  /* border-bottom: 2px solid #F58426; */
+  margin-left: auto;
+}
+
+#tempLotteryDisplay {
+  display: none;
+}
+
+#finishLotteryButton {
+  display: none;
+}
+
+#draftPage {
+  display: none;
+    height: 100vh;
+    width: 100%;
+}
+
+#simmedPicks {
+  color: #F58426;
+  font-size: 5vw;
+  font-family: "Changa";
+}
+
+#simmedTeams {
+  color: #F58426;
+  font-size: 4vw;
+  font-family: "Changa";
+}
+
+.dnameDiv {
+  border: 3px solid #F58426;
+  color: #F58426;
+  font-family: "Changa";
+  height: 15vh;
+}
+
+.dplayerRow {
+  overflow: hidden;
+}
+
+.posRow {
+  height: 100%;
+  margin-top: -13px;
+  padding: 6px;
+}
+
+.draftButton {
+  background-color: transparent;
+  border: 2px solid #F58426;
+  font-family: "Changa";
+  color: #F58426;
+  margin-top: -11px;
+  font-size: 3vh;
+  width: 100%;
+}
+
+@media only screen and (min-width: 751px) {
+  .draftButton {
+    width: 50%;
+  }
+}
+
+
+.headshotDiv {
+  height: 15vh;
+      overflow: hidden;
+      border-left: 3px solid #F58426;
+      border-top: 3px solid #F58426;
+      border-bottom: 3px solid #F58426;
+      padding: 0;
+}
+
+.draftHeadshot {
+  height: 100%;
+  float: revert;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+}
+
+.posDiv {
+  /* height: 100%; */
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.draftName {
+  font-size: 2.5vh;
+    border-bottom: 3px solid #F58426;
+}
+
+@media only screen and (min-width: 751px) {
+  .draftName {
+    font-size: 3.5vh;
+  }
+  .dnameDiv {
+    height: 25vh;
+  }
+  .headshotDiv {
+    height: 25vh;
+  }
+}
+
+
+#draftTitle {
+  color: #F58426;
+  font-family: "Montserrat";
+  font-size: 5vh;
+
+}
+
+#tdTitle {
+  color: #F58426;
+  font-family: "Montserrat";
+  font-size: 5vh;
+    margin-left: 15px;
+}
+
+.tdName {
+  font-size: 3vh;
+      font-family: Changa;
+      color: #F58426;
+}
+
+.tdCut {
+  background-color: transparent;
+  border: 2px solid #F58426;
+  font-family: "Changa";
+  color: #F58426;
+  /* margin-top: 20px; */
+  font-size: 3vh;
+}
+
+.tdSalary {
+  font-size: 2vh;
+      font-family: Changa;
+      color: #F58426;
+}
+
+.tdDiv {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid #F58426;
+  transition: all 0.2s ease;
+}
+
+.tdImg {
+  width: 50%;
+      max-width: 200px;
+      border: 2px solid #F58426;
+      background-color: #ffa559;
+}
+
+.tdKeep {
+  background-color: transparent;
+  border: 2px solid #F58426;
+  font-family: "Changa";
+  color: #F58426;
+  /* margin-top: 20px; */
+  font-size: 3vh;
+}
+
+#tdPlayers {
+  margin-top: 15vh;
+}
+
+.draftTop {
+  position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    background-color: #fadfc9;
+}
+
+.overallRow {
+  color: white;
+  background-color: #F58426;
+  width: 100%;
+  font-family: "Changa";
+  font-size: 3vh;
+}
+
+.capRow {
+  color: white;
+  background-color: #F58426;
+  width: 100%;
+  font-family: "Changa";
+  font-size: 3vh;
+  margin: 0;
+}
+
+#draftTitleRow {
+  background-color: #fadfc9;
+}
+
+.faTitle {
+  color: #F58426;
+  font-family: "Montserrat";
+  font-size: 5vh;
+    margin-left: 15px;
+}
+
+#freeAgentsDiv {
+  margin-top: 21vh;
+}
+
+#fa-tradeTop {
+  position: fixed;
+      z-index: 101;
+      top: 0;
+      font-family: Changa;
+      font-size: 2.1vh;
+      width: 100%;
+      background-color: #fadfc9;
+
+    border-bottom: 3px solid #f9c59a;
+}
+
+
+#faNav {
+      margin-left: 15px;
+      margin-top: 10px;
+      color: #F58426;
+      text-decoration: none;
+}
+
+#faTradeDone {
+        margin-left: 15px;
+        margin-top: 10px;
+        background-color: transparent;
+        border: 2px solid #F58426;
+        font-family: "Changa";
+        color: #F58426;
+            margin-bottom: 10px;
+        /* margin-top: 20px; */
+}
+
+#tradeNav {
+  margin-left: 15px;
+        margin-top: 10px;
+              color: #f9c59a;
+                  text-decoration: none;
+}
+
+#roster {
+  margin-top: 23vh;
+}
+
+#rosterNav {
+  margin-left: 15px;
+        margin-top: 10px;
+              color: #f9c59a;
+                  text-decoration: none;
+}
+
+.faTop {
+  position: fixed;
+z-index: 100;
+top: 6vh;
+width: 100%;
+background-color: #fadfc9;
+}
+
+.dSumNum {
+  font-family: "Changa";
+  font-size: 4vh;
+  color: #F58426;
+}
+
+.dSumName {
+  font-family: "Changa";
+  font-size: 4vh;
+  color: #F58426;
+}
+
+
+.blockImg {
+  width: 100%;
+}
+
+#tradingBlock {
+  margin-top: 23vh;
+}
+
+.blockDiv {
+  border: 2px solid #F58426;
+      background-color: #fbc69c;
+}
+
+.rosterDiv {
+  border: 2px solid #F58426;
+      /* background-color: #fbc69c; */
+}
+
+.blockName {
+  font-size: 3vh;
+    font-family: "changa";
+    color: #f58426;
+}
+
+.tradePlayerImg {
+  height: 100%;
+  /* border: 2px solid #f58426; */
+    background-color: #f58426;
+}
+
+@media only screen and (min-width: 751px) {
+  .blockName {
+    font-size: 5vh;
+  }
+}
+
+#overall {
+  margin-bottom: 3px;
+}
+
+.salary {
+    margin-bottom: 3px;
+}
+
+#draftSim {
+  margin-top: 15vh;
+}
+
+#finishDraftButton {
+  display: none;
+  background-color: transparent;
+  border: 2px solid #F58426;
+  font-family: "Changa";
+  color: #F58426;
+  font-size: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+#teamDecisionsPage {
+  display: none;
+}
+
+#teamDecisionsContinue {
+  display: none;
+}
+
+#freeAgencyPage {
+  display: none;
+}
+
+#tradePage {
+  display: none;
+}
+
+#rosterPage {
+  display: none;
+}
+
+#fa-tradePage {
+  display: none;
+}
+
+#tradeDiv {
+  display: none;
+      margin-top: 23vh;
+}
+
+.tradeTeam {
+    font-family: Montserrat;
+    color: #f58427;
+        font-size: 3vh;
+}
+
+.tradePlayerName {
+  font-family: "Changa";
+  font-size: 3vh;
+  color: #f58427;
+}
+
+.assetsRow {
+  border-bottom: 2px solid #f58427;
+      height: 10vh;
+      overflow: hidden;
+}
+
+.tradePlayerSalary {
+  font-family: "Changa";
+  font-size: 2.5vh;
+  color: #f58427;
+}
+
+.tradeTeamRow {
+  margin: 5px;
+}
+
+.tradehead {
+  height: 10vh;
+}
+
+.accTradeButt {
+  background-color: transparent;
+    border: 2px solid #F58426;
+    font-family: "Changa";
+    color: #F58426;
+    font-size: 3vh;
+        margin-top: 20px;
+}
+
+.simButton {
+  background-color: transparent;
+    border: 2px solid #F58426;
+    font-family: "Changa";
+    color: #F58426;
+    font-size: 3vh;
+        margin-top: 20px;
+}
+
+#record {
+  font-size: 3vh;
+  font-family: "Changa";
+  color: #F58426;
+}
+
+.howYouDid {
+  font-size: 4vh;
+  font-family: "Changa";
+  color: #F58426;
+}
+
+#summaryButton {
+  display: none;
+}
+
+#recordPage {
+  display: none;
+}
+
+#summaryPage {
+  display: none;
+}
+
+#sumRecord {
+  color: white;
+  font-size: 7vh;
+  font-family: "Montserrat";
+  border-bottom: 5px solid white;
+}
+
+#in {
+  color: #98fd98;
+  font-size: 5vh;
+  font-family: "Montserrat";
+  margin: 0px;
+}
+
+#out {
+  color: #b71111;
+  font-size: 5vh;
+  font-family: "Montserrat";
+  margin: 0px;
+}
+
+.sumName {
+  font-size: 2.5vh;
+  color: white;
+  font-family: "Changa";
+  margin: 0px;
+}
+
+.inoutRow {
+  margin: 0;
+  margin-left: 5vw;
+}
+
+#sumTitle {
+  font-size: 3vh;
+  color: white;
+  font-family: "Montserrat";
+  margin: 0px;
+}
+
+.share {
+  font-size: 2.5vh;
+  color: white;
+  font-family: "Changa";
+  margin: 0px;
+  margin-top: 10px
+}
+
+#outDiv {
+  margin-bottom: 15px;
+}
+
+.noOffers {
+  font-family: "Changa";
+  color: #F58426;
+  font-size: 3vh;
+}
+
+.twitter {
+  font-size: 3.5vh;
+  color: white;
+  font-family: "Changa";
+  margin: 0px;
+}

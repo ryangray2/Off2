@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>TKW Offseason 2</title>
+  <meta name="description" content="TKW Offseason 2">
+  <meta name="author" content="Ryan Gray">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="off2.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <!-- START -->
+  <div id="startPage" class="container">
+    <p id="topYear" class="year">2020-2021</p>
+    <h1 id="titleTop" class="title">TKW</h1>
+    <h1 class="title titleUnder">OFFSEASON</h1>
+    <h1 class="title titleUnder">APP</h1>
+    <p id="ryan" class="year">By: Ryan Gray (@Ryan2Gray)</p>
+    <button class="start"onclick="startButtonPressed()">Start</button>
+  </div>
+  <!-- NOTEPAGE -->
+  <div id="notePage">
+    <h1 class="title">Note</h1>
+    <button class="start"onclick="noteButtonPressed()">Continue</button>
+  </div>
+  <!-- LOTTERY -->
+  <div class="container" id="lotteryPage">
+    <div class="row titleRow">
+      <div class="col-xs-5">
+        <h1 id="lotteryTitle">Lottery</h1>
+      </div>
+      <div class="col-xs-7">
+        <button id="finishLotteryButton" onclick="finishLotteryPressed()">Continue</button>
+      </div>
+    </div>
+    <div id="lottoDiv"></div>
+    <p id="tempLotteryDisplay"></p>
+    <button id="startLotteryButton" onclick="startLotteryPressed()">Start</button>
+
+  </div>
+  <div id="draftPage" class="container">
+    <div class="draftTop">
+      <div class="row titleRow" id="draftTitleRow">
+        <div class="col-xs-5">
+          <h1 id="draftTitle">Draft</h1>
+        </div>
+      </div>
+      <div class="row overallRow text-center">
+        <p id="overall">Overall</p>
+      </div>
+    </div>
+    <div id="draftSim">
+      <div class="row text-center">
+        <div class="col-xs-12">
+          <p id="simmedTeams"></p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-12">
+          <p id="simmedPicks"></p>
+        </div>
+      </div>
+    </div>
+
+    <button id="startDraftButton" onclick="startDraftPressed()">Start</button>
+    <div id="availablePlayers"></div>
+    <div class="row text-center">
+      <!-- <div class="col-xs-12"> -->
+        <button id="finishDraftButton" onclick="finishDraftPressed()">Continue</button>
+      <!-- </div> -->
+    </div>
+  </div>
+  <div id="teamDecisionsPage">
+    <div class="draftTop">
+      <h1 id="tdTitle">Team Decisions</h1>
+      <div class="row capRow text-center">
+        <p class="salary"></p>
+      </div>
+    </div>
+    <div id="tdPlayers">
+    </div>
+    <button id="teamDecisionsContinue" onclick="teamDecisionsContinuePressed()">Continue</button>
+  </div>
+  <div id="fa-tradePage">
+    <div id="fa-tradeTop">
+      <a id="faNav" onclick="faNavClick()">Free Agency</a>
+      <a id="tradeNav" onclick="tradeNavClick()">Trading Block</a>
+        <a id="rosterNav" onclick="rosterNavClick()">Roster</a>
+      <button id="faTradeDone" onclick="faTradeDone()">Done</button>
+    </div>
+    <!-- <p class="salary"></p> -->
+    <div id="freeAgencyPage">
+      <div class="faTop">
+        <h1 class="faTitle">Free Agency</h1>
+        <div class="row capRow text-center">
+          <p class="salary"></p>
+        </div>
+      </div>
+      <div id="freeAgentsDiv"></div>
+    </div>
+    <div id="tradePage">
+      <div class="faTop">
+        <h1 class="faTitle">Trading Block</h1>
+        <div class="row capRow text-center">
+          <p class="salary"></p>
+        </div>
+      </div>
+      <div id="tradingBlock"></div>
+      <div id="tradeDiv"></div>
+    </div>
+    <div id="rosterPage">
+      <div class="faTop">
+        <h1 class="faTitle">Roster</h1>
+        <div class="row capRow text-center">
+          <p class="salary"></p>
+        </div>
+      </div>
+      <div id="roster">
+      </div>
+    </div>
+  </div>
+  <div id="recordPage">
+    <div class="row titleRow" style="margin: 0;">
+      <h1 class="faTitle">Results</h1>
+    </div>
+    <div class="row text-center">
+      <p class="howYouDid">Let's See How You Did</p>
+    </div>
+    <div class="row text-center">
+      <button class="simButton" id="sim" onclick="sim()">Sim Season</button>
+    </div>
+    <div class="row text-center">
+      <p id="record"></p>
+    </div>
+    <div class="row text-center">
+      <button class="simButton" id="summaryButton" onclick="summaryButton()">Summary</button>
+    </div>
+  </div>
+  <div id="summaryPage">
+    <div class="row text-center">
+      <p id="sumTitle">TKW OFFSEASON APP</p>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-6">
+        <p id="sumRecord"></p>
+      </div>
+      <div class="col-xs-3">
+      </div>
+    </div>
+    <div class="row inoutRow">
+      <p id="in">IN</p>
+    </div>
+    <div id="inDiv">
+    </div>
+    <div class="row inoutRow">
+      <p id="out">OUT</p>
+    </div>
+    <div id="outDiv">
+    </div>
+    <div class="row text-center">
+      <p class="share">Share with us on Twitter</p>
+    </div>
+    <div class="row text-center">
+      <p class="twitter">@TheKnicksWall</p> 
+    </div>
+  </div>
+
+  <script src="nbaPlayers.js" ></script>
+  <script src="draftPlayers.js" ></script>
+  <script src="off2.js"></script>
+</body>
+</html>
