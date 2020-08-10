@@ -1804,7 +1804,7 @@ function summaryButton() {
 
     var p2 = document.createElement("p");
     p2.classList.add("sumName");
-    p2.innerHTML = "Signed";
+    p2.innerHTML = "Let Go";
     col3.appendChild(p2);
 
     var dcol2 = document.createElement("div");
