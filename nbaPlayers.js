@@ -437,7 +437,113 @@ var rjackson = {
 	count: 0
 };
 
-var freeAgents = [millsap, whiteside, gasol, ibaka, gallinari, vanvleet, mmorris, dragic, harrell, bertans, cousins, baynes, jharris, wood, favors, melo, clarkson, burks, rjackson]
+var bazemore = {
+firstName: "Kent",
+lastName: "Bazemore",
+position: "SG",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6637.png&w=350&h=254",
+wa: .8,
+cYears: 2,
+cSalary: 8000000,
+interest: 60,
+count: 0
+};
+
+var noel = {
+firstName: "Nerlens",
+lastName: "Noel",
+position: "C",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2991280.png&w=350&h=254",
+wa: 3,
+cYears: 2,
+cSalary: 7000000,
+interest: 40,
+count: 0
+};
+
+var robinsoniii = {
+firstName: "Glenn",
+lastName: "Robinson III",
+position: "SG",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2991039.png&w=350&h=254",	
+wa: 2.8,
+cYears: 2,
+cSalary: 5000000,
+interest: 55,
+count: 0
+};
+
+var leonard = {
+firstName: "Meyers",
+lastName: "Leonard",
+position: "C",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6605.png&w=350&h=254",
+wa: 2.7,
+cYears: 2,
+cSalary: 11000000,
+interest: 35,
+count: 0
+};
+
+var jonesjr = {
+firstName: "Derrick",
+lastName: "Jones Jr.",
+position: "SG",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3936099.png&w=350&h=254",
+wa: 4.3,
+cYears: 3,
+cSalary: 8000000,
+interest: 40,
+count: 0
+};
+
+var dellavedova = {
+firstName: "Matthew",
+lastName: "Dellavedova",
+position: "PG",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2489716.png&w=350&h=254",
+wa: .2,
+cYears: 2,
+cSalary: 9000000,
+interest: 50,
+count: 0
+};
+
+var harkless = {
+firstName: "Moe",
+lastName: "Harkless",
+position: "SF",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6591.png&w=350&h=254",
+wa: 2.6,
+cYears: 2,
+cSalary: 9000000,
+interest: 50,
+count: 0
+};
+
+var connaughton = {
+firstName: "Pat",
+lastName: "Connaughton",
+position: "SG",
+image: "",
+headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2578239.png&w=350&h=254",
+wa: 2.5,
+cYears: 2,
+cSalary: 3000000,
+interest: 60,
+count: 0
+};
+
+
+
+var freeAgents = [millsap, whiteside, gasol, ibaka, gallinari, vanvleet, mmorris, dragic, harrell, bertans, cousins, baynes, jharris, wood, favors, melo, clarkson, burks, rjackson, bazemore, robinsoniii, leonard, jonesjr, dellavedova, harkless, connaughton]
 
 
 /////// trades
