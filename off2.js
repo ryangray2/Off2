@@ -186,7 +186,7 @@ function calculateSalary() {
     totalSalary += roster[i].cSalary;
   }
   for (let j = 0; j < capHolds.length; j++) {
-    totalSalary += capHolds[j].cSalary;
+    totalSalary += capHolds[j].capHold;
   }
   totalSalary += deadMoney;
 }
@@ -197,10 +197,17 @@ var knicksPicks = [];
 var draftLoop = 0;
 
 function startButtonPressed() {
-  document.getElementById("startPage").style.display = "none";
-  document.getElementById("notePage").style.display = "block";
-  calculateSalary();
-
+  document.getElementById("topYear").classList.add("slide-out-left2");
+  document.getElementById("titleTop").classList.add("slide-out-left");
+  document.getElementById("titleOff").classList.add("slide-out-left2");
+  document.getElementById("titleApp").classList.add("slide-out-left3");
+  document.getElementById("ryan").classList.add("slide-out-left2");
+  document.getElementById("startButton").classList.add("slide-out-left2");
+  setTimeout(function() {
+    document.getElementById("startPage").style.display = "none";
+    document.getElementById("notePage").style.display = "block";
+    calculateSalary();
+  }, 800);
 }
 
 function noteButtonPressed() {
@@ -788,6 +795,75 @@ function createOptions() {
     d.appendChild(row3);
     document.getElementById("tdPlayers").appendChild(d);
   }
+
+  var d = document.createElement("div");
+  d.classList.add("tdDiv");
+
+  var row0 = document.createElement("div");
+  row0.classList.add("row", "text-center");
+  var img = document.createElement("img");
+  img.src = ddotson.headshot;
+  img.classList.add("tdImg");
+  row0.appendChild(img);
+
+  var row1 = document.createElement("div");
+  row1.classList.add("row", "text-center");
+  var p = document.createElement("p");
+  p.classList.add("tdName");
+  p.innerHTML = ddotson.firstName + " " + ddotson.lastName;
+  row1.appendChild(p);
+
+  var row2 = document.createElement("div");
+  row2.classList.add("row", "text-center");
+  var p2 = document.createElement("p");
+  p2.innerHTML = "$" + addCommas(ddotson.capHold) +  " (Cap Hold)";
+  p2.classList.add("tdSalary");
+  row2.appendChild(p2);
+
+  var row3 = document.createElement("div");
+  row3.classList.add("row", "text-center");
+  row3.setAttribute("id", ddotson.lastName + "row");
+
+
+  var dcol1 = document.createElement("div");
+  dcol1.classList.add("col-xs-0", "col-md-3");
+
+  var col1 = document.createElement("div");
+  col1.classList.add("col-xs-6", "col-md-3");
+  var cutBut = document.createElement("button");
+  cutBut.innerHTML = "Let Go";
+  cutBut.setAttribute("id", "letGo" + ddotson.lastName);
+  cutBut.classList.add("tdCut");
+  cutBut.addEventListener('click', function() {
+    letGoDotson(ddotson);
+  });
+  col1.appendChild(cutBut);
+
+  var col2 = document.createElement("div");
+  col2.classList.add("col-xs-6", "col-md-3");
+  var keepBut = document.createElement("button");
+  keepBut.innerHTML = "Retain Rights";
+  keepBut.setAttribute("id", "keep" + ddotson.lastName);
+    keepBut.classList.add("tdKeep");
+  keepBut.addEventListener('click', function() {
+    keepDotson(ddotson);
+  });
+  col2.appendChild(keepBut);
+
+  var dcol2 = document.createElement("div");
+  dcol2.classList.add("col-xs-0", "col-md-3");
+
+  row3.appendChild(dcol1);
+      row3.appendChild(col1);
+          row3.appendChild(col2);
+              row3.appendChild(dcol2);
+  /////
+
+  d.appendChild(row0);
+  d.appendChild(row1);
+  d.appendChild(row2);
+  d.appendChild(row3);
+  document.getElementById("tdPlayers").appendChild(d);
 }
 
 function refreshSalary() {
@@ -799,6 +875,40 @@ function refreshSalary() {
 }
 
 var decCount = 0;
+var dotsonRights = false;
+
+function letGoDotson(guy) {
+  var index = capHolds.indexOf(guy);
+  capHolds.splice(index, 1);
+  refreshSalary();
+  document.getElementById("letGo" + guy.lastName).style.display = "none";
+  document.getElementById("keep" + guy.lastName).style.display = "none";
+  document.getElementById(guy.lastName + "row").style.fontSize = "3.5vh";
+  document.getElementById(guy.lastName + "row").style.fontFamily = "Montserrat";
+  document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
+  document.getElementById(guy.lastName + "row").innerHTML = "LET GO";
+  decCount++;
+  if (decCount >= 7) {
+    // document.getElementById("teamDecisionsContinue").style.display = "block";
+    teamDecisionsContinuePressed();
+  }
+}
+
+function keepDotson(guy) {
+  document.getElementById("letGo" + guy.lastName).style.display = "none";
+  document.getElementById("keep" + guy.lastName).style.display = "none";
+  document.getElementById(guy.lastName + "row").style.fontSize = "3.5vh";
+  document.getElementById(guy.lastName + "row").style.fontFamily = "Montserrat";
+  document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
+  document.getElementById(guy.lastName + "row").innerHTML = "RETAINED RIGHTS";
+  dotsonRights = true;
+  guy.cSalary = 4000000
+  decCount++;
+  if (decCount >= 7) {
+    // document.getElementById("teamDecisionsContinue").style.display = "block";
+    teamDecisionsContinuePressed();
+  }
+}
 
 function cutPlayer(guy) {
   deadMoney += guy.deadMoney;
@@ -813,7 +923,7 @@ function cutPlayer(guy) {
   document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
   document.getElementById(guy.lastName + "row").innerHTML = "CUT";
   decCount++;
-  if (decCount >= 6) {
+  if (decCount >= 7) {
     // document.getElementById("teamDecisionsContinue").style.display = "block";
     teamDecisionsContinuePressed();
   }
@@ -827,7 +937,7 @@ function keepCutPlayer(guy) {
   document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
   document.getElementById(guy.lastName + "row").innerHTML = "KEPT";
   decCount++;
-  if (decCount >= 6) {
+  if (decCount >= 7) {
     // document.getElementById("teamDecisionsContinue").style.display = "block";
     teamDecisionsContinuePressed();
   }
@@ -842,7 +952,7 @@ function letGoPlayer(guy) {
   document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
     document.getElementById(guy.lastName + "row").innerHTML = "LET GO";
   decCount++;
-  if (decCount >= 6) {
+  if (decCount >= 7) {
     // document.getElementById("teamDecisionsContinue").style.display = "block";
     teamDecisionsContinuePressed();
   }
@@ -858,14 +968,14 @@ function keepOptionPlayer(guy) {
   document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
     document.getElementById(guy.lastName + "row").innerHTML = "KEPT";
   decCount++;
-  if (decCount >= 6) {
+  if (decCount >= 7) {
     // document.getElementById("teamDecisionsContinue").style.display = "block";
     teamDecisionsContinuePressed();
   }
 }
 
 function teamDecisionsContinuePressed() {
-
+  console.log(dotsonRights);
   document.getElementById("teamDecisionsPage").style.display = "none";
   document.getElementById("fa-tradePage").style.display = "block";
   document.getElementById("freeAgencyPage").style.display = "block";
@@ -876,80 +986,125 @@ function teamDecisionsContinuePressed() {
 }
 
 
-// var d = document.createElement("div");
-// d.classList.add("tdDiv");
-//
-// var row0 = document.createElement("div");
-// row0.classList.add("row", "text-center");
-// var img = document.createElement("img");
-// img.src = options[i].headshot;
-// img.classList.add("tdImg");
-// row0.appendChild(img);
-//
-// var row1 = document.createElement("div");
-// row1.classList.add("row", "text-center");
-// var p = document.createElement("p");
-// p.classList.add("tdName");
-// p.innerHTML = options[i].firstName + " " + options[i].lastName;
-// row1.appendChild(p);
-//
-// var row2 = document.createElement("div");
-// row2.classList.add("row", "text-center");
-// var p2 = document.createElement("p");
-// p2.innerHTML = "$" + addCommas(options[i].cSalary) +  " (Team Option)";
-// p2.classList.add("tdSalary");
-// row2.appendChild(p2);
-//
-// var row3 = document.createElement("div");
-// row3.classList.add("row", "text-center");
-// row3.setAttribute("id", options[i].lastName + "row");
-//
-//
-// var dcol1 = document.createElement("div");
-// dcol1.classList.add("col-xs-0", "col-md-3");
-//
-// var col1 = document.createElement("div");
-// col1.classList.add("col-xs-6", "col-md-3");
-// var cutBut = document.createElement("button");
-// cutBut.innerHTML = "Let Go";
-// cutBut.setAttribute("id", "letGo" + options[i].lastName);
-// cutBut.classList.add("tdCut");
-// cutBut.addEventListener('click', function() {
-//   letGoPlayer(options[i]);
-// });
-// col1.appendChild(cutBut);
-//
-// var col2 = document.createElement("div");
-// col2.classList.add("col-xs-6", "col-md-3");
-// var keepBut = document.createElement("button");
-// keepBut.innerHTML = "Keep";
-// keepBut.setAttribute("id", "keep" + options[i].lastName);
-//   keepBut.classList.add("tdKeep");
-// keepBut.addEventListener('click', function() {
-//   keepOptionPlayer(options[i]);
-// });
-// col2.appendChild(keepBut);
-//
-// var dcol2 = document.createElement("div");
-// dcol2.classList.add("col-xs-0", "col-md-3");
-//
-// row3.appendChild(dcol1);
-//     row3.appendChild(col1);
-//         row3.appendChild(col2);
-//             row3.appendChild(dcol2);
-// /////
-//
-// d.appendChild(row0);
-// d.appendChild(row1);
-// d.appendChild(row2);
-// d.appendChild(row3);
-// document.getElementById("tdPlayers").appendChild(d);
 
 function generateFA() {
   var myNode = document.getElementById("freeAgentsDiv");
   while (myNode.lastElementChild) {
     myNode.removeChild(myNode.lastElementChild);
   }
+  if (dotsonRights) {
+
+
+  var d = document.createElement("div");
+  d.classList.add("tdDiv");
+
+  var row0 = document.createElement("div");
+  row0.classList.add("row", "text-center");
+  var img = document.createElement("img");
+  img.src = ddotson.headshot;
+  img.classList.add("tdImg");
+  row0.appendChild(img);
+
+  var row1 = document.createElement("div");
+  row1.classList.add("row", "text-center");
+  var p = document.createElement("p");
+  p.classList.add("tdName");
+  p.innerHTML = ddotson.firstName + " " + ddotson.lastName;
+  row1.appendChild(p);
+
+  var row2 = document.createElement("div");
+  row2.classList.add("row", "text-center");
+
+  var col1 = document.createElement("div");
+  col1.classList.add("col-xs-2", "col-md-4");
+
+  var col2 = document.createElement("div");
+  col2.classList.add("col-xs-8", "col-md-4");
+
+  var col3 = document.createElement("div");
+  col3.classList.add("col-xs-2", "col-md-4");
+
+
+  var p2 = document.createElement("p");
+  p2.innerHTML = ddotson.cYears + " yrs./$" + addCommas(ddotson.cSalary) + " per";
+  p2.classList.add("tdSalary");
+  p2.setAttribute("id", "cS" + ddotson.firstName + ddotson.lastName);
+  col2.appendChild(p2);
+
+  row2.appendChild(col1);
+  row2.appendChild(col2);
+  row2.appendChild(col3);
+
+  var row3 = document.createElement("div");
+  row3.classList.add("row", "text-center");
+  row3.setAttribute("id", ddotson.lastName + "row");
+
+  console.log(signed);
+  console.log(offered);
+
+  if (offered.indexOf(ddotson) < 0) {
+
+
+      var dcol1 = document.createElement("div");
+      dcol1.classList.add("col-xs-0", "col-md-3");
+
+      var col1 = document.createElement("div");
+      col1.classList.add("col-xs-12", "col-md-6");
+      var cutBut = document.createElement("button");
+      cutBut.innerHTML = "Match Offer";
+      cutBut.setAttribute("id", "offer" + ddotson.lastName);
+      cutBut.classList.add("tdCut");
+      cutBut.addEventListener('click', function() {
+        offerDotson(ddotson);
+      });
+      col1.appendChild(cutBut);
+
+
+      var dcol2 = document.createElement("div");
+      dcol2.classList.add("col-xs-0", "col-md-3");
+
+      row3.appendChild(dcol1);
+          row3.appendChild(col1);
+                  row3.appendChild(dcol2);
+      /////
+
+      // var offerBut = document.createElement("button");
+      // offerBut.innerHTML = "Make Offer";
+      // offerBut.setAttribute("id", "offer" + freeAgents[i].lastName);
+      // offerBut.addEventListener('click', function() {
+      //   offerPlayer(freeAgents[i]);
+      // });
+    } else if (rejected.indexOf(ddotson) >= 0) {
+    row3.innerHTML = "REJECTED";
+    row3.style.fontSize = "3.5vh";
+    row3.style.fontFamily = "Montserrat";
+    row3.style.color = "rgb(245 132 39)";
+    d.style.backgroundColor = "#fbb2a1";
+  } else if (signed.indexOf(ddotson) >= 0) {
+    console.log("test");
+    row3.innerHTML = "SIGNED";
+    row3.style.fontSize = "3.5vh";
+    row3.style.fontFamily = "Montserrat";
+    row3.style.color = "rgb(245 132 39)";
+    d.style.backgroundColor = "#cbd1a1";
+  }
+
+
+  /////
+  d.appendChild(row0);
+  d.appendChild(row1);
+  d.appendChild(row2);
+  d.appendChild(row3);
+  // if (offered.indexOf(freeAgents[i]) < 0) {
+  //   if (!(freeAgents[i].cSalary > (salaryCap - totalSalary))) {
+  //       d.appendChild(row3);
+  //   }
+  // }
+  document.getElementById("freeAgentsDiv").appendChild(d);
+}
+  ///////////////////////////////////////////////
+  ///////////////////////////////////////////////
+  /////// CMON/////////////////////////
   for (let i = 0; i < freeAgents.length; i++) {
     var d = document.createElement("div");
     d.classList.add("tdDiv");
@@ -970,10 +1125,51 @@ function generateFA() {
 
     var row2 = document.createElement("div");
     row2.classList.add("row", "text-center");
+
+    var col1 = document.createElement("div");
+    col1.classList.add("col-xs-2", "col-md-4");
+
+    var img2 = document.createElement("img");
+    img2.src = "down.png";
+    img2.classList.add("arrow", "arrowLeft");
+    img2.setAttribute("id", "la" + freeAgents[i].firstName + freeAgents[i].lastName);
+
+    img2.addEventListener('click', function() {
+      downArrow(freeAgents[i]);
+    });
+
+    if (offered.indexOf(freeAgents[i]) < 0) {
+      col1.appendChild(img2);
+    }
+
+    var col2 = document.createElement("div");
+    col2.classList.add("col-xs-8", "col-md-4");
+
+    var col3 = document.createElement("div");
+    col3.classList.add("col-xs-2", "col-md-4");
+
+    var img3 = document.createElement("img");
+    img3.src = "up.png";
+    img3.classList.add("arrow", "arrowRight");
+    img3.setAttribute("id", "ra" + freeAgents[i].firstName + freeAgents[i].lastName);
+
+    img3.addEventListener('click', function() {
+      upArrow(freeAgents[i]);
+    });
+
+    if (offered.indexOf(freeAgents[i]) < 0) {
+      col3.appendChild(img3);
+    }
+
     var p2 = document.createElement("p");
     p2.innerHTML = freeAgents[i].cYears + " yrs./$" + addCommas(freeAgents[i].cSalary) + " per";
     p2.classList.add("tdSalary");
-    row2.appendChild(p2);
+    p2.setAttribute("id", "cS" + freeAgents[i].firstName + freeAgents[i].lastName);
+    col2.appendChild(p2);
+
+    row2.appendChild(col1);
+    row2.appendChild(col2);
+    row2.appendChild(col3);
 
     var row3 = document.createElement("div");
     row3.classList.add("row", "text-center");
@@ -1042,6 +1238,37 @@ function generateFA() {
   }
 }
 
+function upArrow(guy) {
+      document.getElementById("la" + guy.firstName + guy.lastName).style.display = "block";
+  guy.count += 1;
+  guy.cSalary += 1000000;
+  // generateFA();
+    document.getElementById("cS" + guy.firstName + guy.lastName).innerHTML = guy.cYears + " yrs./$" + addCommas(guy.cSalary) + " per";
+  if (guy.count === 3) {
+    document.getElementById("ra" + guy.firstName + guy.lastName).style.display = "none";
+  }
+  if (guy.count === -2) {
+    document.getElementById("la" + guy.firstName + guy.lastName).style.display = "block";
+  }
+}
+
+function downArrow(guy) {
+  guy.count -= 1;
+  guy.cSalary -= 1000000;
+  document.getElementById("cS" + guy.firstName + guy.lastName).innerHTML = guy.cYears + " yrs./$" + addCommas(guy.cSalary) + " per";
+  // generateFA();
+  if (guy.count === 2) {
+    document.getElementById("ra" + guy.firstName + guy.lastName).style.display = "block";
+  }
+  if (guy.count === -3) {
+    document.getElementById("la" + guy.firstName + guy.lastName).style.display = "none";
+  }
+  if ((guy.cSalary - 1000000) < 3000000) {
+    document.getElementById("la" + guy.firstName + guy.lastName).style.display = "none";
+  }
+}
+
+
 function generateTradingBlock() {
   var tradeablePlayers = [randle, payton, ntilikina, knox, gibson, bullock, ellington, dsmith, brazdeikis, portis]
 
@@ -1105,9 +1332,24 @@ function generateTradingBlock() {
   }
 }
 
+function offerDotson(guy) {
+      roster.push(guy);
+      sumSigned.push(guy);
+      signed.push(guy);
+      var index = capHolds.indexOf(ddotson);
+      capHolds.splice(index, 1);
+      refreshSalary();
+      offered.push(guy);
+      console.log(roster);
+      generateFA();
+}
+
 function offerPlayer(guy) {
   var rand = Math.floor(Math.random() * 101);
-  if (guy.interest >= rand) {
+  var int = guy.interest;
+  int += (guy.count * 10);
+  console.log("interest: " + int);
+  if (int >= rand) {
     // accept
     if ((salaryCap - totalSalary >= guy.cSalary)) {
       roster.push(guy);
@@ -1133,6 +1375,8 @@ function offerPlayer(guy) {
     // document.getElementById(guy.lastName + "row").style.fontFamily = "Montserrat";
     // document.getElementById(guy.lastName + "row").style.color = "rgb(245 132 39)";
   }
+  // document.getElementById("ra" + guy.firstName + guy.lastName).style.display = "none";
+  // document.getElementById("la" + guy.firstName + guy.lastName).style.display = "none";
 }
 
 function generateRoster() {
@@ -1198,6 +1442,7 @@ function faNavClick() {
 }
 
 function rosterNavClick() {
+      window.scrollTo(0, 0);
   document.getElementById("freeAgencyPage").style.display = "none";
   document.getElementById("tradePage").style.display = "none";
   document.getElementById("rosterPage").style.display = "block";
@@ -1208,6 +1453,7 @@ function rosterNavClick() {
 }
 
 function tradeNavClick() {
+    window.scrollTo(0, 0);
   document.getElementById("freeAgencyPage").style.display = "none";
   document.getElementById("tradePage").style.display = "block";
     document.getElementById("rosterPage").style.display = "none";
@@ -1225,6 +1471,8 @@ function generateOffers(guy) {
   while (myNode.lastElementChild) {
     myNode.removeChild(myNode.lastElementChild);
   }
+  document.getElementById("tradeNote").style.display = "none";
+  document.getElementById("tradingBlock").style.marginTop = "23vh";
   var poss = [];
   var prePoss = [];
   for (let i = 0; i < tradesArr.length; i++) {
@@ -1239,6 +1487,11 @@ function generateOffers(guy) {
       }
       for (let k = 0; k < tradesArr[i].sendPicks.length; k++) {
         if (tradePicks.indexOf(tradesArr[i].sendPicks[k]) < 0) {
+          good = false;
+        }
+      }
+      if (tradesArr[i] === cpTrade) {
+        if (((salaryCap - totalSalary) + ntilikina.cSalary + bullock.cSalary) < cp.cSalary) {
           good = false;
         }
       }
