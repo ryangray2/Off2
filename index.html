@@ -19,17 +19,18 @@
 <body>
  <!-- START -->
   <div id="startPage" class="container">
-    <p id="topYear" class="year">2020-2021</p>
-    <h1 id="titleTop" class="title">TKW</h1>
-    <h1 class="title titleUnder">OFFSEASON</h1>
-    <h1 class="title titleUnder">APP</h1>
-    <p id="ryan" class="year">By: Ryan Gray (@Ryan2Gray)</p>
-    <button class="start"onclick="startButtonPressed()">Start</button>
+    <p id="topYear" class="year slide-in-right2">2020-2021</p>
+    <h1 id="titleTop" class="title slide-in-right">TKW</h1>
+    <h1 id="titleOff" class="title titleUnder slide-in-right2">OFFSEASON</h1>
+    <h1 id="titleApp" class="title titleUnder slide-in-right3">APP</h1>
+    <p id="ryan" class="year slide-in-right2">By: Ryan Gray (@Ryan2Gray)</p>
+    <button id="startButton" class="start slide-in-right3"onclick="startButtonPressed()">Start</button>
   </div>
   <!-- NOTEPAGE -->
-  <div id="notePage">
-    <h1 class="title">Note</h1>
-    <button class="start"onclick="noteButtonPressed()">Continue</button>
+  <div id="notePage" class="container">
+    <h1 class="title slide-in-right">Note</h1>
+    <button class="start slide-in-right3" onclick="noteButtonPressed()">Continue</button>
+    <p class="slide-in-right2" id="note">Due to COVID-19, there is a lot of uncertainty this offseason. This app (very optimistically) uses the $115 million salary cap figure that was projected before the season began. I will make adjustments as things change. </br></br> Stay safe and wear a f****** mask.</p>
   </div>
   <!-- LOTTERY -->
   <div class="container" id="lotteryPage">
@@ -113,6 +114,9 @@
           <p class="salary"></p>
         </div>
       </div>
+      <div id="tradeNote" class="row text-center">
+        <p>Select a player to find an offer.</p>
+      </div>
       <div id="tradingBlock"></div>
       <div id="tradeDiv"></div>
     </div>
@@ -171,7 +175,7 @@
       <p class="share">Share with us on Twitter</p>
     </div>
     <div class="row text-center">
-      <p class="twitter">@TheKnicksWall</p> 
+      <p class="twitter">@TheKnicksWall</p>
     </div>
   </div>
 
