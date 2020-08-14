@@ -28,7 +28,7 @@ var ball = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "ball.png"
 };
 
 var avdija = {
@@ -39,7 +39,7 @@ var avdija = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "deni.png"
 };
 
 var toppin = {
@@ -61,7 +61,7 @@ var hayes = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "killian.png"
 };
 
 var haliburton = {
@@ -149,7 +149,7 @@ var hampton = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "hampton.png"
 };
 
 var maxey = {
@@ -248,7 +248,7 @@ var maledon = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "maledon.png"
 };
 
 var smith = {
@@ -281,7 +281,7 @@ var bolmaro = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "leandro.png"
 };
 
 var mcdaniels = {
@@ -292,7 +292,7 @@ var mcdaniels = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "jaden.png"
 };
 
 var aleksej = {
@@ -303,7 +303,7 @@ var aleksej = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
-	headshot: ""
+	headshot: "aleksej.png"
 };
 
 var jones = {
