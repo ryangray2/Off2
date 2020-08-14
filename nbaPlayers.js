@@ -87,7 +87,10 @@ var ddotson = {
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2991149.png&w=350&h=254",
 	wa: .9,
-	cSalary: 2023150
+	cYears: 3,
+	cSalary: 4000000,
+	capHold: 2023150,
+	interest: 100
 };
 
 var bullock = {
@@ -168,7 +171,8 @@ var harper = {
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4066248.png&w=350&h=254",
 	wa: 0,
-	cSalary: 1549812
+	cSalary: 1549812,
+	capHold: 1549812
 };
 
 var rabb = {
@@ -178,7 +182,8 @@ var rabb = {
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3917378.png&w=350&h=254",
 	wa: 0,
-	cSalary: 1549812
+	cSalary: 1549812,
+	capHold: 1549812
 };
 
 ///////////////////////////////////////////////////
@@ -194,7 +199,8 @@ var millsap = {
 	wa: 3.4,
 	cYears: 1,
 	cSalary: 12000000,
-	interest: 40
+	interest: 40,
+	count: 0
 };
 
 var whiteside = {
@@ -206,7 +212,8 @@ var whiteside = {
 	wa: 5,
 	cYears: 3,
 	cSalary: 16000000,
-	interest: 30
+	interest: 30,
+	count: 0
 };
 
 var gasol = {
@@ -218,7 +225,8 @@ var gasol = {
 	wa: 2.7,
 	cYears: 1,
 	cSalary: 10000000,
-	interest: 20
+	interest: 20,
+	count: 0
 };
 
 var ibaka = {
@@ -230,7 +238,8 @@ var ibaka = {
 	wa: 3.9,
 	cYears: 2,
 	cSalary: 19000000,
-	interest: 45
+	interest: 45,
+	count: 0
 };
 
 var gallinari = {
@@ -242,7 +251,8 @@ var gallinari = {
 	wa: 5.7,
 	cYears: 2,
 	cSalary: 21000000,
-	interest: 20
+	interest: 20,
+	count: 0
 };
 
 var vanvleet = {
@@ -254,7 +264,8 @@ var vanvleet = {
 	wa: 4.9,
 	cYears: 3,
 	cSalary: 22000000,
-	interest: 60
+	interest: 60,
+	count: 0
 };
 
 var mmorris = {
@@ -266,7 +277,8 @@ var mmorris = {
 	wa: 3.1,
 	cYears: 2,
 	cSalary: 12000000,
-	interest: 30
+	interest: 30,
+	count: 0
 };
 
 var dragic = {
@@ -278,7 +290,8 @@ var dragic = {
 	wa: 3,
 	cYears: 2,
 	cSalary: 14000000,
-	interest: 40
+	interest: 40,
+	count: 0
 };
 
 var harrell = {
@@ -290,7 +303,8 @@ var harrell = {
 	wa: 7,
 	cYears: 4,
 	cSalary: 22000000,
-	interest: 60
+	interest: 60,
+	count: 0
 };
 
 var bertans = {
@@ -302,7 +316,8 @@ var bertans = {
 	wa: 3.5,
 	cYears: 4,
 	cSalary: 15000000,
-	interest: 60
+	interest: 60,
+	count: 0
 };
 
 var cousins = {
@@ -310,11 +325,12 @@ var cousins = {
 	lastName: "Cousins",
 	position: "C",
 	image: "",
-	headshot: "",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4258.png&w=350&h=254",
 	wa: 2.4,
 	cYears: 1,
 	cSalary: 4000000,
-	interest: 20
+	interest: 20,
+	count: 0
 };
 
 var baynes = {
@@ -326,7 +342,8 @@ var baynes = {
 	wa: 2,
 	cYears: 2,
 	cSalary: 11000000,
-	interest: 50
+	interest: 50,
+	count: 0
 };
 
 var jharris = {
@@ -338,7 +355,8 @@ var jharris = {
 	wa: 3.8,
 	cYears: 3,
 	cSalary: 15000000,
-	interest: 70
+	interest: 70,
+	count: 0
 };
 
 var wood = {
@@ -350,7 +368,8 @@ var wood = {
 	wa: 5.1,
 	cYears: 3,
 	cSalary: 14000000,
-	interest: 70
+	interest: 70,
+	count: 0
 };
 
 var favors = {
@@ -362,7 +381,8 @@ var favors = {
 	wa: 3.8,
 	cYears: 2,
 	cSalary: 8000000,
-	interest: 37
+	interest: 37,
+	count: 0
 };
 
 var melo = {
@@ -373,8 +393,9 @@ var melo = {
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/1975.png&w=350&h=254",
 	wa: 1,
 	cYears: 1,
-	cSalary: 5000000,
-	interest: 75
+	cSalary: 8000000,
+	interest: 75,
+	count: 0
 };
 
 var clarkson = {
@@ -386,7 +407,8 @@ var clarkson = {
 	wa: 2,
 	cYears: 2,
 	cSalary: 11000000,
-	interest: 60
+	interest: 60,
+	count: 0
 };
 
 var burks = {
@@ -398,7 +420,8 @@ var burks = {
 	wa: 3,
 	cYears: 3,
 	cSalary: 9000000,
-	interest: 50
+	interest: 50,
+	count: 0
 };
 
 var rjackson = {
@@ -410,7 +433,8 @@ var rjackson = {
 	wa: .9,
 	cYears: 2,
 	cSalary: 9000000,
-	interest: 40
+	interest: 40,
+	count: 0
 };
 
 var freeAgents = [millsap, whiteside, gasol, ibaka, gallinari, vanvleet, mmorris, dragic, harrell, bertans, cousins, baynes, jharris, wood, favors, melo, clarkson, burks, rjackson]
@@ -1290,6 +1314,24 @@ var blakeTrade = {
 
 }
 
+var cp = {
+	firstName: "Chris",
+	lastName: "Paul",
+	position: "PG",
+	image: "",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2779.png&w=350&h=254",
+	wa: 8.9,
+	cSalary: 41358814
+}
+
+var cpTrade = {
+	send: [bullock, ntilikina],
+	receive: [cp],
+	sendPicks: [],
+	receivePicks: [],
+	otherTeam: "Thunder"
+}
 
 
-var tradesArr = [dalTrade, houTrade, memTrade, nopTrade, sasTrade, gswTrade, lalTrade, phxTrade, chaTrade, minTrade, okcTrade, cleTrade, detTrade, denTrade, utaTrade, chiTrade, demarTrade, loveTrade, blakeTrade];
+
+var tradesArr = [dalTrade, houTrade, memTrade, nopTrade, sasTrade, gswTrade, lalTrade, phxTrade, chaTrade, minTrade, okcTrade, cleTrade, detTrade, denTrade, utaTrade, chiTrade, demarTrade, loveTrade, blakeTrade, cpTrade];
