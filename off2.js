@@ -232,7 +232,7 @@ function noteButtonPressed() {
     (function (i, j) {
       setTimeout(function() {
         var teamRow = document.createElement("div");
-        teamRow.classList.add("row", "text-center", "teamRow");
+        teamRow.classList.add("row", "text-center", "teamRow", "slide-in-top");
         var numDiv = document.createElement("div");
         numDiv.classList.add("col-xs-1");
         numDiv.style.borderRight = "2px solid #F58426";
@@ -368,10 +368,13 @@ var knicksNums = [];
 function knicksSelect() {
   document.getElementById("simmedPicks").innerHTML = "KNICKS ARE ON THE CLOCK";
   document.getElementById("simmedTeams").innerHTML = "";
+  if (draftPlayers.length > 30) {
+    document.getElementById("tkwInsightP").style.display = "block";
+  }
   for (let i = 0; i < draftPlayers.length; i++) {
     // if (!(takenPlayers.indexOf(draftPlayers[i]) > -1)) {
       var dplayerRow = document.createElement("div");
-      dplayerRow.classList.add("row", "dplayerRow");
+      dplayerRow.classList.add("row", "dplayerRow", "slide-in-right");
 
       // dplayerRow.addEventListener('mouseover', function() {
       //   generateDraftButton(draftPlayers[i]);
@@ -382,7 +385,7 @@ function knicksSelect() {
       // });
 
       var headshotDiv = document.createElement("div");
-      headshotDiv.classList.add("col-xs-5", "col-md-3", "col-lg-2", "headshotDiv");
+      headshotDiv.classList.add("col-xs-4", "col-md-3", "col-lg-2", "headshotDiv");
 
       var headshot = document.createElement("img");
       headshot.classList.add("draftHeadshot", "center-block");
@@ -392,11 +395,21 @@ function knicksSelect() {
       dplayerRow.appendChild(headshotDiv);
 
       var nameDiv = document.createElement("div");
-      nameDiv.classList.add("col-xs-7", "col-md-9", "dnameDiv");
+      nameDiv.classList.add("col-xs-8", "col-md-9", "dnameDiv");
 
       var name = document.createElement("p");
       name.classList.add("draftName");
-      name.innerHTML = draftPlayers[i].firstName + " " + draftPlayers[i].lastName;
+      if (draftPlayers[i].tkw != null) {
+        // name.innerHTML = draftPlayers[i].firstName + " " + draftPlayers[i].lastName + "<img id='" + "tkw" + draftPlayers[i].lastName + draftPlayers[i].firstName + "' class='tkwDraft' src='tkwSquare copy.png'>";
+        name.innerHTML = draftPlayers[i].firstName + " " + draftPlayers[i].lastName + "<span id='" + "tkw" + draftPlayers[i].lastName + draftPlayers[i].firstName + "' class='tkwInsight'>TKW</span>";
+      } else {
+        name.innerHTML = draftPlayers[i].firstName + " " + draftPlayers[i].lastName;
+      }
+
+
+      var tkw = document.createElement("img");
+      tkw.classList.add("tkwDraft");
+      tkw.src = "tkwSquare.png";
 
       var posRow = document.createElement("div");
       posRow.classList.add("row", "text-center", "posRow");
@@ -445,10 +458,35 @@ function knicksSelect() {
       document.getElementById("availablePlayers").appendChild(dplayerRow);
       // document.getElementById("availablePlayers").appendChild(button);
     // }
+      if (draftPlayers[i].tkw != null) {
+        var icon = document.getElementById("tkw" + draftPlayers[i].lastName + draftPlayers[i].firstName);
+        icon.addEventListener('click', function() {
+          draftIcon(draftPlayers[i]);
+        });
+      }
   }
 }
 
+function draftIcon(guy) {
+  console.log(guy);
+  document.getElementById("draftPop").classList.remove("slide-out-top");
+  document.getElementById("draftPop").classList.add("slide-in-top");
+  document.getElementById("draftPop").style.display = "block";
+  document.getElementById("popNameDraft").innerHTML = guy.firstName + " " + guy.lastName;
+  document.getElementById("popParaDraft").innerHTML = guy.tkw;
+}
+
+function draftIconBack() {
+  document.getElementById("draftPop").classList.remove("slide-in-top");
+  document.getElementById("draftPop").classList.add("slide-out-top");
+  setTimeout(function() {
+    document.getElementById("draftPop").style.display = "none";
+  }, 500);
+
+}
+
 function draftPlayer(guy) {
+  document.getElementById("tkwInsightP").style.display = "none";
   draftLoop += 1;
 
   if (draftLoop === 1) {
@@ -1441,6 +1479,8 @@ function faNavClick() {
   document.getElementById("rosterNav").style.color = "#f9c59a";
 }
 
+
+
 function rosterNavClick() {
       window.scrollTo(0, 0);
   document.getElementById("freeAgencyPage").style.display = "none";
@@ -1845,11 +1885,52 @@ function sim() {
 // var sumSigned = [];
 // var sumTradedFor = [];
 
+function projectedStarters() {
+  var starters = [robinson, barrett];
+  gCount = 0;
+  fCount = 1;
+  roster.sort(function(a, b){return b.wa - a.wa});
+  for (let i = 0; i < roster.length; i++) {
+    if (roster[i] == barrett) {
+      continue;
+    }
+    if (roster[i].position.indexOf("G") >= 0) {
+      if (gCount >= 3) {
+        continue;
+      } else {
+        gCount++;
+        starters.push(roster[i]);
+        if (starters.length == 5) {
+          break;
+        }
+      }
+    }
+    else if (roster[i].position.indexOf("F") >= 0) {
+      if (fCount >= 3) {
+        continue;
+      } else {
+        fCount++;
+        starters.push(roster[i]);
+        if (starters.length == 5) {
+          break;
+        }
+      }
+    }
+    else {
+      continue;
+    }
+  }
+
+  return starters;
+}
+
 function summaryButton() {
+    makeFinalRoster();
   document.getElementById("recordPage").style.display = "none";
   document.getElementById("summaryPage").style.display = "block";
   document.body.style.backgroundColor = "#F58426";
   document.documentElement.style.background = "#F58426";
+
 
   document.getElementById("sumRecord").innerHTML = finalRecord;
 
@@ -2139,4 +2220,87 @@ function summaryButton() {
     document.getElementById("outDiv").appendChild(d);
   }
 
+}
+
+function rosterNav2Click() {
+  document.getElementById("rosterNav2").style.color = "white";
+  document.getElementById("movesNav").style.color = "#f9c59a";
+  document.getElementById("movesDiv").style.display = "none";
+  document.getElementById("roster2Div").style.display = "block";
+}
+
+function movesNavClick() {
+  document.getElementById("rosterNav2").style.color = "#f9c59a";
+  document.getElementById("movesNav").style.color = "white";
+  document.getElementById("movesDiv").style.display = "block";
+  document.getElementById("roster2Div").style.display = "none";
+
+}
+
+function makeFinalRoster() {
+  var arr = projectedStarters();
+  arr.sort(function(a, b){return b.position.charAt(b.position.length - 1) - a.position.charAt(a.position.length - 1)});
+  for (let i = 0; i < arr.length; i++) {
+    var col = document.createElement("div");
+    col.classList.add("col-xs-4");
+    col.style.height = "100%";
+
+    var img = document.createElement("img");
+    img.classList.add("startHeadshot");
+    img.setAttribute("src", arr[i].headshot);
+
+    var p = document.createElement("p");
+    p.classList.add("startName");
+    p.innerHTML = arr[i].lastName;
+
+    col.appendChild(img);
+    col.appendChild(p);
+    if (i < 3) {
+      document.getElementById("startRow1").appendChild(col);
+    } else {
+      document.getElementById("startRow2").appendChild(col);
+    }
+  }
+
+  roster.sort(function(a, b){return b.wa - a.wa});
+  for (let i = 0; i < roster.length; i++) {
+    if (arr.indexOf(roster[i]) >= 0) {
+      continue;
+    } else {
+      var row = document.createElement("div");
+      row.classList.add("row", "text-center");
+
+      var col = document.createElement("div");
+      col.classList.add("col-xs-0", "col-md-2");
+
+      var col2 = document.createElement("div");
+      col2.classList.add("col-xs-3", "col-md-2");
+
+      var p = document.createElement("p");
+      p.classList.add("benchPos");
+      p.innerHTML = roster[i].position;
+
+      col2.appendChild(p);
+
+      var col3 = document.createElement("div");
+      col3.classList.add("col-xs-9", "col-md-6");
+
+      var p2 = document.createElement("p");
+      p2.classList.add("benchName");
+      p2.innerHTML = roster[i].firstName + " " + roster[i].lastName;
+
+      col3.appendChild(p2);
+
+      var col4 = document.createElement("div");
+      col4.classList.add("col-xs-0", "col-md-2");
+
+      row.appendChild(col);
+      row.appendChild(col2);
+      row.appendChild(col3);
+      row.appendChild(col4);
+
+      document.getElementById("benchDiv").appendChild(row);
+
+    }
+  }
 }
