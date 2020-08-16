@@ -144,9 +144,19 @@ var por = {
   logo: "blazersLogo.png"
 }
 
+var bos = {
+  loc: "Boston",
+  name: "Celtics",
+  ballPic: "lottoBallBlazers.gif",
+  hasPick: false,
+  pick: 0,
+  color: "#E03A3E",
+  logo: "celtics.png"
+}
 
-var lottoTeamsArr = [gsw, cle, min, atl, det, nyk, chi, cha, was, phx, sa, sac, no, por];
-var draftTeamsArr = ["Orlando", "Brooklyn", "Memphis", "Dallas", "Indiana", "Philadelphia", "Houston", "Oklahoma City", "Miami", "Utah", "Oklahoma City", "Boston", "New York", "Toronto", "Lakers", "Boston", "Dallas", "Charlotte", "Minnesota", "Philadelphia", "Sacramento", "Philadelphia", "Washington", "New York"];
+
+var lottoTeamsArr = [gsw, cle, min, atl, det, nyk, chi, cha, was, phx, sa, no, sac, bos];
+var draftTeamsArr = ["Orlando", "Portland", "Minnesota", "Dallas", "Brooklyn", "Miami", "Denver", "Philadelphia", "Utah", "Milwaukee", "Oklahoma City", "Boston", "New York", "Lakers", "Toronto", "Boston", "Dallas", "Charlotte", "Minnesota", "Philadelphia", "Sacramento", "Philadelphia", "Washington", "New Orleans", "New York"];
 var takenPlayers = [];
 
 var roster = [randle, barrett, robinson, payton, ntilikina, knox, gibson, bullock, ellington, dsmith, brazdeikis];
@@ -283,30 +293,40 @@ function startLotteryPressed() {
 }
 
 function finishLotteryPressed() {
-  document.getElementById("lotteryPage").style.display = "none";
-  document.getElementById("draftPage").style.display = "block";
-  document.getElementById("startDraftButton").style.display = "none";
-  var i = 0;
-  var knicksPick = lottoTeamsArr.indexOf(nyk);
-  knicksSpot = lottoTeamsArr.indexOf(nyk);
-  while (i <= knicksPick) {
-    (function (i) {
-      setTimeout(function() {
-        document.getElementById("overall").innerHTML = "#" + (i+1);
-        if (knicksPick === i) {
-          knicksSelect();
-          knicksNums.push(i+1);
-        } else {
-          var x = Math.floor(Math.random() * 3);
-          document.getElementById("simmedTeams").innerHTML = lottoTeamsArr[i].name;
-          document.getElementById("simmedPicks").innerHTML = draftPlayers[x].firstName + " " + draftPlayers[x].lastName;
-          takenPlayers.push(draftPlayers[x]);
-          var index = draftPlayers.indexOf(draftPlayers[x]);
-          draftPlayers.splice(index, 1);
-        }
-      }, 1000 * i)
-    }) (i++)
-  }
+  document.getElementById("lotteryTitleRow").classList.add("slide-out-top");
+  document.getElementById("lottoDiv").classList.add("fade-out");
+
+
+  setTimeout(function() {
+    document.getElementById("lotteryPage").style.display = "none";
+    document.getElementById("draftPage").style.display = "block";
+    document.getElementById("startDraftButton").style.display = "none";
+  }, 600);
+
+    setTimeout(function() {
+      var i = 0;
+      var knicksPick = lottoTeamsArr.indexOf(nyk);
+      knicksSpot = lottoTeamsArr.indexOf(nyk);
+      while (i <= knicksPick) {
+        (function (i) {
+          setTimeout(function() {
+            document.getElementById("overall").innerHTML = "#" + (i+1);
+            if (knicksPick === i) {
+              knicksSelect();
+              knicksNums.push(i+1);
+            } else {
+              var x = Math.floor(Math.random() * 3);
+              document.getElementById("simmedTeams").innerHTML = lottoTeamsArr[i].name;
+              document.getElementById("simmedPicks").innerHTML = draftPlayers[x].firstName + " " + draftPlayers[x].lastName;
+              takenPlayers.push(draftPlayers[x]);
+              var index = draftPlayers.indexOf(draftPlayers[x]);
+              draftPlayers.splice(index, 1);
+            }
+          }, 1000 * i)
+        }) (i++)
+      }
+    }, 1100);
+
 }
 
 
@@ -476,6 +496,15 @@ function draftIcon(guy) {
   document.getElementById("popParaDraft").innerHTML = guy.tkw;
 }
 
+function faIcon(guy) {
+  console.log(guy);
+  document.getElementById("faPop").classList.remove("slide-out-top");
+  document.getElementById("faPop").classList.add("slide-in-top");
+  document.getElementById("faPop").style.display = "block";
+  document.getElementById("popNamefa").innerHTML = guy.firstName + " " + guy.lastName;
+  document.getElementById("popParafa").innerHTML = guy.tkw;
+}
+
 function draftIconBack() {
   document.getElementById("draftPop").classList.remove("slide-in-top");
   document.getElementById("draftPop").classList.add("slide-out-top");
@@ -485,7 +514,16 @@ function draftIconBack() {
 
 }
 
+function faIconBack() {
+  document.getElementById("faPop").classList.remove("slide-in-top");
+  document.getElementById("faPop").classList.add("slide-out-top");
+  setTimeout(function() {
+    document.getElementById("faPop").style.display = "none";
+  }, 500);
+}
+
 function draftPlayer(guy) {
+      document.getElementById("draftPop").style.display = "none";
   document.getElementById("tkwInsightP").style.display = "none";
   draftLoop += 1;
 
@@ -681,12 +719,20 @@ function startDraftPressed() {
 }
 
 function finishDraftPressed() {
-  document.getElementById("draftPage").style.display = "none";
-  document.getElementById("teamDecisionsPage").style.display = "block";
-  createOptions();
-  calculateSalary();
-  document.getElementsByClassName("salary")[0].innerHTML = "Cap Room: $" + addCommas(salaryCap - totalSalary);
-  document.getElementsByClassName("salary")[1].innerHTML = "Cap Room: $" + addCommas(salaryCap - totalSalary);
+
+  document.getElementById("availablePlayers").classList.add("fade-out");
+  document.getElementById("draftTitle").classList.add("slide-out-top");
+  document.getElementById("finishDraftButton").style.display = "none";
+
+  setTimeout(function() {
+    document.getElementById("draftPage").style.display = "none";
+    document.getElementById("teamDecisionsPage").style.display = "block";
+    createOptions();
+    calculateSalary();
+    document.getElementsByClassName("salary")[0].innerHTML = "Cap Room: $" + addCommas(salaryCap - totalSalary);
+    document.getElementsByClassName("salary")[1].innerHTML = "Cap Room: $" + addCommas(salaryCap - totalSalary);
+  }, 600);
+
 }
 
 var cuts = [gibson, ellington, payton, bullock];
@@ -1030,6 +1076,8 @@ function generateFA() {
   while (myNode.lastElementChild) {
     myNode.removeChild(myNode.lastElementChild);
   }
+
+  freeAgents.sort(function(a, b){return b.cSalary - a.cSalary});
   if (dotsonRights) {
 
 
@@ -1158,8 +1206,13 @@ function generateFA() {
     row1.classList.add("row", "text-center");
     var p = document.createElement("p");
     p.classList.add("tdName");
-    p.innerHTML = freeAgents[i].firstName + " " + freeAgents[i].lastName;
+    if (freeAgents[i].tkw != null) {
+      p.innerHTML = freeAgents[i].firstName + " " + freeAgents[i].lastName + "<span id='" + "tkw" + freeAgents[i].lastName + freeAgents[i].firstName + "' class='tkwInsight'>TKW</span>";
+    } else {
+      p.innerHTML = freeAgents[i].firstName + " " + freeAgents[i].lastName;
+    }
     row1.appendChild(p);
+
 
     var row2 = document.createElement("div");
     row2.classList.add("row", "text-center");
@@ -1215,7 +1268,11 @@ function generateFA() {
 
     if (offered.indexOf(freeAgents[i]) < 0) {
       if (freeAgents[i].cSalary > (salaryCap - totalSalary)) {
-        d.style.opacity = ".5"
+        d.style.opacity = ".5";
+        row3.innerHTML = "______";
+        row3.style.fontSize = "3.5vh";
+        row3.style.fontFamily = "Montserrat";
+        row3.style.color = "#f9c59a";
       } else {
 
         var dcol1 = document.createElement("div");
@@ -1273,6 +1330,13 @@ function generateFA() {
     //   }
     // }
     document.getElementById("freeAgentsDiv").appendChild(d);
+
+    if (freeAgents[i].tkw != null) {
+      var icon = document.getElementById("tkw" + freeAgents[i].lastName + freeAgents[i].firstName);
+      icon.addEventListener('click', function() {
+        faIcon(freeAgents[i]);
+      });
+    }
   }
 }
 
@@ -1718,6 +1782,7 @@ function generateOffers(guy) {
         var acceptButton = document.createElement("button");
         acceptButton.innerHTML = "Accept";
         acceptButton.classList.add("accTradeButt");
+        acceptButton.style.marginBottom = "30px";
         acceptButton.addEventListener('click', function() {
           acceptOffer(poss[k]);
         });
@@ -1726,6 +1791,7 @@ function generateOffers(guy) {
         rejectButton.innerHTML = "Reject";
         rejectButton.style.display = "inline";
         rejectButton.style.marginLeft = "15px";
+        rejectButton.style.marginBottom = "30px";
         rejectButton.classList.add("accTradeButt");
         rejectButton.addEventListener('click', function() {
           rejectOffer(poss[k]);
@@ -1854,31 +1920,66 @@ function addCommas(num) {
 }
 
 function faTradeDone() {
-  document.getElementById("recordPage").style.display = "block";
-  document.getElementById("fa-tradePage").style.display = "none";
+    document.getElementById("recordPage").style.display = "block";
+    document.getElementById("fa-tradePage").style.display = "none";
+
 }
 
 var finalRecord = "";
+var playoffs = false;
 
 function sim() {
+    document.getElementById("sim").style.display = "none";
   var wins = 0;
   for (let i = 0; i < roster.length; i++) {
     wins += roster[i].wa;
   }
+  // wins *= 1.24;
   wins *= 1.24;
   wins = Math.round(wins);
   var losses = 82 - wins;
   console.log(wins);
   console.log(losses);
-  document.getElementById("record").innerHTML = wins + " - " + losses;
+  var mark = 1 - (wins / 82);
+  var id2 = setInterval(frame2, 50);
+  var tempWins = 0;
+  var tempLosses = 0;
+  function frame2() {
+    if (tempWins == wins && tempLosses == losses) {
+      clearInterval(id2);
+    } else {
+      if (tempWins != wins && tempLosses != losses) {
+        var rand = Math.random();
+        if (rand >= mark) {
+          tempWins += 1;
+          document.getElementById("record").innerHTML = tempWins + " - " + tempLosses;
+        } else {
+          tempLosses += 1;
+          document.getElementById("record").innerHTML = tempWins + " - " + tempLosses;
+        }
+      } else if (tempWins == wins) {
+        tempLosses += 1;
+        document.getElementById("record").innerHTML = tempWins + " - " + tempLosses;
+      } else {
+        tempWins += 1;
+        document.getElementById("record").innerHTML = tempWins + " - " + tempLosses;
+      }
+    }
+  }
+  // document.getElementById("record").innerHTML = wins + " - " + losses;
+  setTimeout(function() {
+    finalRecord = wins + " - " + losses;
 
-  finalRecord = wins + " - " + losses;
+    console.log("traded for: " + sumTradedFor);
+    console.log("drafted: " + sumDrafted);
+    console.log("signed: " + sumSigned);
+      document.getElementById("summaryButton").style.display = "block";
+      if (wins >= 40) {
+        document.getElementById("firstPlayoff").style.display = "block";
+        playoffs = true;
+      }
+  }, 82 * 50);
 
-  console.log("traded for: " + sumTradedFor);
-  console.log("drafted: " + sumDrafted);
-  console.log("signed: " + sumSigned);
-  document.getElementById("sim").style.display = "none";
-    document.getElementById("summaryButton").style.display = "block";
 }
 
 // var sumDrafted = [];
@@ -1930,6 +2031,9 @@ function summaryButton() {
   document.getElementById("summaryPage").style.display = "block";
   document.body.style.backgroundColor = "#F58426";
   document.documentElement.style.background = "#F58426";
+  if (playoffs) {
+    document.getElementById("secondPlayoff").style.display = "block";
+  }
 
 
   document.getElementById("sumRecord").innerHTML = finalRecord;
@@ -1954,7 +2058,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumDrafted[i].firstName + " " + sumDrafted[i].lastName;
 
     col2.appendChild(p);
@@ -1963,7 +2067,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Drafted";
     col3.appendChild(p2);
 
@@ -1989,7 +2093,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumSigned[i].firstName + " " + sumSigned[i].lastName;
 
     col2.appendChild(p);
@@ -1998,7 +2102,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Signed";
     col3.appendChild(p2);
 
@@ -2024,7 +2128,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumTradedFor[i].firstName + " " + sumTradedFor[i].lastName;
 
     col2.appendChild(p);
@@ -2033,7 +2137,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Traded For";
     col3.appendChild(p2);
 
@@ -2058,7 +2162,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumPicksReceived[i];
 
     col2.appendChild(p);
@@ -2067,7 +2171,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Traded For";
     col3.appendChild(p2);
 
@@ -2093,7 +2197,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumCut[i].firstName + " " + sumCut[i].lastName;
 
     col2.appendChild(p);
@@ -2102,7 +2206,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Cut";
     col3.appendChild(p2);
 
@@ -2128,7 +2232,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumDeclined[i].firstName + " " + sumDeclined[i].lastName;
 
     col2.appendChild(p);
@@ -2137,7 +2241,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Let Go";
     col3.appendChild(p2);
 
@@ -2162,7 +2266,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumTradedAway[i].firstName + " " + sumTradedAway[i].lastName;
 
     col2.appendChild(p);
@@ -2171,7 +2275,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Traded Away";
     col3.appendChild(p2);
 
@@ -2196,7 +2300,7 @@ function summaryButton() {
     col2.classList.add("col-xs-7", "col-md-5");
 
     var p = document.createElement("p");
-    p.classList.add("sumName");
+    p.classList.add("sumName", "slide-in-right2");
     p.innerHTML = sumPicksGiven[i];
 
     col2.appendChild(p);
@@ -2205,7 +2309,7 @@ function summaryButton() {
     col3.classList.add("col-xs-4", "col-md-3");
 
     var p2 = document.createElement("p");
-    p2.classList.add("sumName");
+    p2.classList.add("sumName", "slide-in-right3");
     p2.innerHTML = "Traded Away";
     col3.appendChild(p2);
 
@@ -2239,7 +2343,16 @@ function movesNavClick() {
 
 function makeFinalRoster() {
   var arr = projectedStarters();
-  arr.sort(function(a, b){return b.position.charAt(b.position.length - 1) - a.position.charAt(a.position.length - 1)});
+  arr.sort(function(a, b){
+    if(a.position.charAt(a.position.length - 1) < b.position.charAt(b.position.length - 1)) { return -1; }
+    if(a.position.charAt(a.position.length - 1) > b.position.charAt(b.position.length - 1)) { return 1; }
+    return 0;
+  });
+
+  var temp = arr[1];
+  arr[1] = arr[0];
+  arr[0] = temp;
+
   for (let i = 0; i < arr.length; i++) {
     var col = document.createElement("div");
     col.classList.add("col-xs-4");
@@ -2247,11 +2360,41 @@ function makeFinalRoster() {
 
     var img = document.createElement("img");
     img.classList.add("startHeadshot");
+    if (i == 0) {
+      img.classList.add("slide-in-right");
+    }
+    if (i == 1) {
+      img.classList.add("slide-in-right2");
+    }
+    if (i == 2) {
+      img.classList.add("slide-in-right");
+    }
+    if (i == 3) {
+      img.classList.add("slide-in-right3");
+    }
+    if (i == 4) {
+      img.classList.add("slide-in-right2");
+    }
     img.setAttribute("src", arr[i].headshot);
 
     var p = document.createElement("p");
     p.classList.add("startName");
     p.innerHTML = arr[i].lastName;
+    if (i == 0) {
+      p.classList.add("slide-in-right2");
+    }
+    if (i == 1) {
+      p.classList.add("slide-in-right3");
+    }
+    if (i == 2) {
+      p.classList.add("slide-in-right2");
+    }
+    if (i == 3) {
+      p.classList.add("slide-in-right");
+    }
+    if (i == 4) {
+      p.classList.add("slide-in-right");
+    }
 
     col.appendChild(img);
     col.appendChild(p);
@@ -2277,7 +2420,7 @@ function makeFinalRoster() {
       col2.classList.add("col-xs-3", "col-md-2");
 
       var p = document.createElement("p");
-      p.classList.add("benchPos");
+      p.classList.add("benchPos", "slide-in-right2");
       p.innerHTML = roster[i].position;
 
       col2.appendChild(p);
@@ -2286,7 +2429,7 @@ function makeFinalRoster() {
       col3.classList.add("col-xs-9", "col-md-6");
 
       var p2 = document.createElement("p");
-      p2.classList.add("benchName");
+      p2.classList.add("benchName", "slide-in-right");
       p2.innerHTML = roster[i].firstName + " " + roster[i].lastName;
 
       col3.appendChild(p2);
