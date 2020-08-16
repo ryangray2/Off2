@@ -1063,6 +1063,7 @@ function teamDecisionsContinuePressed() {
   document.getElementById("teamDecisionsPage").style.display = "none";
   document.getElementById("fa-tradePage").style.display = "block";
   document.getElementById("freeAgencyPage").style.display = "block";
+    freeAgents.sort(function(a, b){return b.cSalary - a.cSalary});
   refreshSalary();
   generateFA();
   generateTradingBlock();
@@ -1077,7 +1078,7 @@ function generateFA() {
     myNode.removeChild(myNode.lastElementChild);
   }
 
-  freeAgents.sort(function(a, b){return b.cSalary - a.cSalary});
+
   if (dotsonRights) {
 
 
