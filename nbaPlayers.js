@@ -14,7 +14,7 @@ var barrett = {
 	position: "SG/SF",
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4395625.png&w=350&h=254",
-	wa: 2,
+	wa: 3,
 	cSalary: 8231760
 };
 
@@ -252,6 +252,7 @@ var gallinari = {
 	cYears: 2,
 	cSalary: 21000000,
 	interest: 20,
+	tkw: "Since leaving the Big Apple, Gallinari has grown into the player Knicks fans hoped he would be when they drafted him. Over the past two seasons he has honed in on his natural position as a stretch four, scoring near 20 points per game and hitting three-pointers at an impressive 40% clip on healthy volume; this season he is shooting 40.9% on 7.3 three-point attempts per game. - Mike Cortez",
 	count: 0
 };
 
@@ -265,6 +266,7 @@ var vanvleet = {
 	cYears: 3,
 	cSalary: 22000000,
 	interest: 60,
+	tkw: "Fred VanVleet is an excellent player who will enter unrestricted free agency for the first time in his career. The New York Knicks should not only be interested but should push to sign him at the beginning of free agency. Over his four-year career, VanVleet has shown the ability to affect the game on both sides of the ball, while also offering solid playmaking ability and the ability to play off the ball. - Quentin Haynes",
 	count: 0
 };
 
@@ -317,6 +319,7 @@ var bertans = {
 	cYears: 4,
 	cSalary: 15000000,
 	interest: 60,
+	tkw: "Having a stretch big man would do wonders for the Knicks. Alley-oop-slamming center Mitchell Robinson and dextrous finisher R.J. Barrett, among other youngsters, would have more room to operate and a reliable failsafe to pass to when the defense collapses on them. - Sam DiGiovanni",
 	count: 0
 };
 
@@ -356,6 +359,7 @@ var jharris = {
 	cYears: 3,
 	cSalary: 15000000,
 	interest: 70,
+	tkw: "The Knicks need shooting, and as they consider this development over the next two seasons, adding Harris to help ease some of the defensive gameplans off Barrett and Robinson. While he doesn’t fit the age criteria (29, as of the 2020–21 season), one of the best shooters in the league would be perfect for a team still figuring it out in other areas, yet looking to make a considerable jump in the 2020–21 season. - Quentin Haynes",
 	count: 0
 };
 
@@ -393,7 +397,7 @@ var melo = {
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/1975.png&w=350&h=254",
 	wa: 1,
 	cYears: 1,
-	cSalary: 8000000,
+	cSalary: 7500000,
 	interest: 75,
 	count: 0
 };
@@ -536,14 +540,63 @@ image: "",
 headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2578239.png&w=350&h=254",
 wa: 2.5,
 cYears: 2,
-cSalary: 3000000,
+cSalary: 4000000,
 interest: 60,
 count: 0
 };
 
+var holiday = {
+	firstName: "Justin",
+	lastName: "Holiday",
+	position: "SG",
+	image: "",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2284101.png&w=350&h=254",
+	wa: 4.2,
+	cYears: 2,
+	cSalary: 6000000,
+	interest: 40,
+	count: 0
+};
+
+var forbes = {
+	firstName: "Bryn",
+	lastName: "Forbes",
+	position: "SG",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2994526.png&w=350&h=254",
+	wa: 2.1,
+	cYears: 3,
+	cSalary: 5000000,
+	interest: 35,
+	count: 0
+};
+
+var joshjackson = {
+	firstName: "Josh",
+	lastName: "Jackson",
+	position: "SF",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4066297.png&w=350&h=254",
+	wa: .5,
+	cYears: 2,
+	cSalary: 5500000,
+	interest: 40,
+	count: 0
+};
+
+var giles = {
+	firstName: "Harry",
+	lastName: "Giles",
+	position: "PF",
+	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4065649.png&w=350&h=254",
+	wa: 1.6,
+	cYears: 2,
+	cSalary: 4500000,
+	interest: 40,
+	count: 0
+};
 
 
-var freeAgents = [millsap, whiteside, gasol, ibaka, gallinari, vanvleet, mmorris, dragic, harrell, bertans, cousins, baynes, jharris, wood, favors, melo, clarkson, burks, rjackson, bazemore, robinsoniii, leonard, jonesjr, dellavedova, harkless, connaughton]
+
+var freeAgents = [millsap, whiteside, gasol, ibaka, gallinari, vanvleet, mmorris, dragic, harrell, bertans, cousins, baynes, jharris, wood, favors, melo, clarkson, burks, rjackson, bazemore, robinsoniii, leonard, jonesjr, dellavedova, harkless, connaughton, holiday, forbes, joshjackson, giles]
 
 
 /////// trades
