@@ -171,6 +171,7 @@ var maxey = {
 	image: "",
 	cSalary: 0,
 	wa: 3.4,
+	tkw: "A threesome of Maxey, Frank Ntilikina, and Barrett has serious appeal and could make someone like Tom Thibodeau pass out from the possibilities. Just thinking about Ntilikina and Maxey swarming someone for a trap would be nightmare fuel for opposing players. The interchangeability backcourt and the versatility of Ntilikina and Barrett on the wing, with Robinson lurking down low, would give the next head coach a group of young guys that could realistically develop into a top-end defense. - Mike Cortez",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4431678.png&w=350&h=254"
 };
 
