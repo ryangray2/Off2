@@ -99,7 +99,7 @@ var bullock = {
 	position: "SG",
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2528779.png&w=350&h=254",
-	wa: .5,
+	wa: 2.4,
 	cSalary: 4200000,
 	deadMoney: 1000000
 };
@@ -262,7 +262,7 @@ var vanvleet = {
 	position: "PG",
 	image: "",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2991230.png&w=350&h=254",
-	wa: 4.9,
+	wa: 5.8,
 	cYears: 3,
 	cSalary: 22000000,
 	interest: 60,
