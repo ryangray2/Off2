@@ -1342,16 +1342,18 @@ function generateFA() {
 }
 
 function upArrow(guy) {
-      document.getElementById("la" + guy.firstName + guy.lastName).style.display = "block";
-  guy.count += 1;
-  guy.cSalary += 1000000;
-  // generateFA();
-    document.getElementById("cS" + guy.firstName + guy.lastName).innerHTML = guy.cYears + " yrs./$" + addCommas(guy.cSalary) + " per";
-  if (guy.count === 3) {
-    document.getElementById("ra" + guy.firstName + guy.lastName).style.display = "none";
-  }
-  if (guy.count === -2) {
+  if (salaryCap - totalSalary >= (guy.cSalary + 1000000)) {
     document.getElementById("la" + guy.firstName + guy.lastName).style.display = "block";
+    guy.count += 1;
+    guy.cSalary += 1000000;
+    // generateFA();
+      document.getElementById("cS" + guy.firstName + guy.lastName).innerHTML = guy.cYears + " yrs./$" + addCommas(guy.cSalary) + " per";
+    if (guy.count === 3) {
+      document.getElementById("ra" + guy.firstName + guy.lastName).style.display = "none";
+    }
+    if (guy.count === -2) {
+      document.getElementById("la" + guy.firstName + guy.lastName).style.display = "block";
+    }
   }
 }
 
@@ -1932,11 +1934,13 @@ var playoffs = false;
 function sim() {
     document.getElementById("sim").style.display = "none";
   var wins = 0;
-  for (let i = 0; i < roster.length; i++) {
+  roster.sort(function(a, b){return b.wa - a.wa});
+  for (let i = 0; i < 10; i++) {
     wins += roster[i].wa;
+    console.log(roster[i].wa + " " + roster[i].lastName);
   }
   // wins *= 1.24;
-  wins *= 1.24;
+  wins *= 1.15;
   wins = Math.round(wins);
   var losses = 82 - wins;
   console.log(wins);
