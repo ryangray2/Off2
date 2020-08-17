@@ -89,7 +89,8 @@ var okongwu = {
 	school: "USC",
 	image: "",
 	cSalary: 0,
-	wa: 3.6,
+	wa: 2.6,
+	tkw: " In this writer’s opinion, Mitchell Robinson and Onyeka Okongwu, while possessing the potential to be truly dominant defensively, would likely be untenable on offense, especially with the shaky shooting of R.J. Barrett, the team’s other cornerstone. - Eli Cohen",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4431680.png&w=350&h=254"
 };
 
@@ -183,6 +184,7 @@ var williams = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
+	tkw: "Simply put, Williams is the type of big man prospect that’s worth a second, and probably a third, look. A great positional defender who can pass, shoot, and doesn’t need the ball in his hands to have an impact is the perfect complementary piece in today’s league, and his age and flashes of advanced ball handling and shot-making also hint at upside that could make him one of the more interesting forwards in the league in time—imagine if Paul Millsap came into the league ready to shoot the three-ball, instead of taking seven years to unleash it - Eli Cohen",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4431687.png&w=350&h=254"
 };
 
@@ -308,6 +310,7 @@ var mcdaniels = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
+	tkw: "McDaniels’ one and only season as a Husky was an adventure, showing signs of stardom some games and disappointment in others. The freshman was relegated to the bench midway through the season after starting 21 games. Ultimately, McDaniels ended up averaging 13.0 points and 5.8 rebounds, per ESPN Stats, on a Washington team that fell well short of expectations, finishing last in conference play. - Nick Scolaro",
 	headshot: "jaden.png"
 };
 
@@ -491,6 +494,7 @@ var riller = {
 	image: "",
 	cSalary: 0,
 	wa: 0,
+	tkw: "While Riller is wired as a scorer, he’s a willing and capable passer, especially on the break, where he keeps his eyes up and tries to push the pace. Like Terry, he’s already very crafty relocated off-ball and plays with active hands on defense as well as chasing after rebounds. He’s also shown a great drive-and-kick ability playing alongside a floor-spacing big and has experience in two-guard lineups, which is necessary for anyone playing off Barrett. - Eli Cohen",
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/3912295.png&w=350&h=254"
 };
 
