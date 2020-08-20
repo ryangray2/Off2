@@ -531,4 +531,4 @@ var winston = {
 	headshot: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4066382.png&w=350&h=254"
 };
 
-var draftPlayers = [wiseman, edwards, ball, avdija, toppin, hayes, haliburton, okongwu, okoro, anthony, vassell, nesmith, bey, hampton, maxey, williams, achiuwa, green, lewisJr, ramsey, mannion, terry, maledon, smith, tbey, bolmaro, mcdaniels, aleksej, jones, nnaji, stewart, bane, quickley, reed, careyJr, woodardII, tillman, oturu, dotson, stanley, tillie, perry, riller, nwora, azubuike, winston];
+var draftPlayers = [ball, toppin, edwards, wiseman, okongwu, avdija, okoro, hayes, haliburton, bey, anthony, hampton, achiuwa, nesmith, vassell, maxey, williams, aleksej, maledon, stewart, lewisJr, smith, jones, ramsey, mannion, mcdaniels, terry, tillman, green, tbey, careyJr, bolmaro, nnaji,  bane, quickley, reed, woodardII, oturu, dotson, stanley, tillie, perry, riller, nwora, azubuike, winston];
