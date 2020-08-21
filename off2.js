@@ -156,7 +156,7 @@ var bos = {
 
 
 var lottoTeamsArr = [gsw, cle, min, atl, det, nyk, chi, cha, was, phx, sa, no, sac, bos];
-var draftTeamsArr = ["Orlando", "Portland", "Minnesota", "Dallas", "Brooklyn", "Miami", "Denver", "Philadelphia", "Utah", "Milwaukee", "Oklahoma City", "Boston", "New York", "Lakers", "Toronto", "Boston", "Dallas", "Charlotte", "Minnesota", "Philadelphia", "Sacramento", "Philadelphia", "Washington", "New Orleans", "New York"];
+var draftTeamsArr = ["Orlando", "Portland", "Minnesota", "Dallas", "Brooklyn", "Miami", "Denver", "Philadelphia", "Utah", "Milwaukee", "Oklahoma City", "Boston", "New York", "Lakers", "Toronto", "Boston", "Dallas", "Charlotte", "Minnesota", "Philadelphia", "Sacramento", "Philadelphia", "Washington", "New York"];
 var takenPlayers = [];
 
 var roster = [randle, barrett, robinson, payton, ntilikina, knox, gibson, bullock, ellington, dsmith, brazdeikis];
@@ -233,6 +233,8 @@ function noteButtonPressed() {
 
   sortDraftOrderAsc();
 
+  //// enter lotto
+   lottoTeamsArr = [min, gsw, cha, chi, cle, atl, det, nyk, was, phx, sa, sac, no, bos];
 
 
   var i = lottoTeamsArr.length - 1;
@@ -381,6 +383,8 @@ function doLottery() {
       newPick++;
     }
   }
+
+
 }
 
 var knicksNums = [];
@@ -663,7 +667,7 @@ function postLotteryDraft(num) {
       setTimeout(function() {
         document.getElementById("overall").innerHTML = "#" + (i+1);
         if (i < 14) {
-          var x = Math.floor(Math.random() * 3);
+          var x = Math.floor(Math.random() * 2);
           document.getElementById("simmedTeams").innerHTML = lottoTeamsArr[i].name;
           document.getElementById("simmedPicks").innerHTML = draftPlayers[x].firstName + " " + draftPlayers[x].lastName;
           takenPlayers.push(draftPlayers[x]);
@@ -675,7 +679,7 @@ function postLotteryDraft(num) {
             knicksSelect();
             knicksNums.push(i+1);
           } else {
-            var x = Math.floor(Math.random() * 4);
+            var x = Math.floor(Math.random() * 3);
             if (draftPlayers[x] === null) {
               x = 0;
             }
@@ -707,7 +711,7 @@ function startDraftPressed() {
           } else {
 
 
-            var x = Math.floor(Math.random() * 3);
+            var x = Math.floor(Math.random() * 2);
             document.getElementById("simmedPicks").innerHTML = lottoTeamsArr[i].name + ": " + draftPlayers[x].lastName;
             takenPlayers.push(draftPlayers[x]);
             var index = draftPlayers.indexOf(draftPlayers[x]);
